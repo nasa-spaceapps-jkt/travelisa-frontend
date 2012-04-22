@@ -1,4 +1,16 @@
 TravelImpact::Application.routes.draw do
+
+  get "trips/summaries"
+
+  get "trips/patterns"
+
+  get "trips/index"
+
+  resources :trips
+
+  root :to => 'home#index'
+
+  resources :home
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
