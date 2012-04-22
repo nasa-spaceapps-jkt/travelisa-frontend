@@ -4,18 +4,18 @@ require 'json'
 class Trip
 
   include HTTParty
+  format :json
 
   BASEURI = "http://travelisa.ksetyadi.com/index.php/api/"
   
   def self.SummaryGet(first, last)
-    
+
     request = HTTParty.get BASEURI + 'travel_summary?start=' + first + '&end=' + last
     request = JSON.parse(request)
 
     request["data"].each do |data|
       puts data["type"]
-    end
-	
+    end	
   end
 
   def self.SummaryDetailGet(trip_id)
