@@ -1,9 +1,61 @@
 <h1>Trips Summaries</h1>
 
 <h2>Trip Summary:</h2>
-
-<%= Trip.SummaryGet("1335002300","1335016801") %>
 <br />
+<h3>Data Structure:</h3> <br />
+<%= Trip.SummaryGet("1335002300","1335016801") %>
+<br /><br />
+
+<table class="table table-striped">
+<tr>
+	<td>Trip ID</td>
+	<td>Type</td>
+	<td>Total Distance(m)</td>
+	<td>Start Time</td>
+	<td>End Time</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>car</td>
+	<td>10000</td>
+	<td>1335002400</td>
+	<td>1335009600</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>motorcycle</td>
+	<td>20000</td>
+	<td>1335013200</td>
+	<td>1335016800</td>
+</tr>
+</table>
+
 <br />
 <h2>Trip Summary Detail</h2>
+<br />
+<h3>Data Structure:</h3> <br />
 <%= Trip.SummaryDetailGet("1") %>
+<br /><br />
+<table class="table table-bordered">
+<tr>
+	<td>ID</td>
+	<td>Trip ID</td>
+	<td>Latitude</td>
+	<td>Longitude</td>
+	<td>Time</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>1</td>
+	<td>-6.238898</td>
+	<td>106.81504</td>
+	<td>1335002400</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>1</td>
+	<td>-6.238983</td>
+	<td>106.815813</td>
+	<td>1335002580</td>
+</tr>
+</table>
