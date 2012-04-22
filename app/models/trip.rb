@@ -14,7 +14,7 @@ class Trip
     request = JSON.parse(request)
 
     request["data"].each do |data|
-      puts data["type"]
+      data["type"]
     end	
   end
 
@@ -24,18 +24,18 @@ class Trip
     request = JSON.parse(request)
 
     request ["data"].each do |data|
-      puts data["lat"]
+      data["lat"]
     end  
 
   end
 
-  def self.PatternGet(first2, last2)
+  def self.PatternGet(first, last)
 
-    request = HTTParty.get BASEURI + 'pattern?start=' + first2 + '&end=' + last2
+    request = HTTParty.get BASEURI + 'pattern?start=' + first + '&end=' + last
     request = JSON.parse(request)
 
     request ["data"].each do |data|
-      puts data["type"]
+      data["type"]
     end
 
   end
