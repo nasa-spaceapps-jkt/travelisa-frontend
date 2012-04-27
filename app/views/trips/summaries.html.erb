@@ -47,3 +47,43 @@
 </tr>
 <% end %>
 </table>
+
+   <script type="text/javascript">
+
+      var map;
+      function initialize() {
+        var mapDiv = document.getElementById('map-canvas');
+        map = new google.maps.Map(mapDiv, {
+
+<% sum_detail = Trip.SummaryDetailGet("1") %>
+<% sum_detail.each do |data| %>
+
+          center: new google.maps.LatLng(<%= data["lat"] %>, <%= data["lon"] %>),
+<% end %>
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+      
+        google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
+      
+      }
+      
+      function addMarkers() {
+        {
+<% sum_detail = Trip.SummaryDetailGet("1") %>
+<% sum_detail.each do |data| %>
+          
+          var latLng = new google.maps.LatLng(<%= data["lat"] %>, <%= data["lon"] %>);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+ <% end %>         
+        }
+      }
+      
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>  
+ 
+            <div id="map-canvas" style="width: 500px; height: 400px"></div>
