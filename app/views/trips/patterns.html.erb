@@ -1,31 +1,21 @@
 <h1>Trips Patterns</h1>
 <br />
-<h3>Data Structure:</h3> <br />
-<%= Trip.PatternGet("1335002300","1335016801") %>
-<br /><br />
+
 <table class="table table-bordered">
 <tr>
-	<td>Type</td>
-	<td>Time in Hour</td>
-	<td>Percentage Usage</td>
-	<td>Total Footprint</td>
+	<th>Type</th>
+	<th>Time in Hour</th>
+	<th>Percentage Usage</th>
+	<th>Total Footprint</th>
 </tr>
+
+<% pattern = Trip.PatternGet("1335002300","1335016801") %>
+<% pattern.each do |data| %>
 <tr>
-	<td>car</td>
-	<td>20.2</td>
-	<td>10</td>
-	<td>150</td>
+	<td><%= data["type"]%></td>
+	<td><%= data["time_in_hour"]%></td>
+	<td><%= data["percentage_usage"]%></td>
+	<td><%= data["total_footprint"]%></td>
 </tr>
-<tr>
-	<td>motorcycle</td>
-	<td>12</td>
-	<td>20</td>
-	<td>75</td>
-</tr>
-<tr>
-	<td>walk</td>
-	<td>20.2</td>
-	<td>10</td>
-	<td>5</td>
-</tr>
+<% end %>
 </table>

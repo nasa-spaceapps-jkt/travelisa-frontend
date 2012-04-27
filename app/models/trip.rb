@@ -13,9 +13,7 @@ class Trip
     request = HTTParty.get BASEURI + 'travel_summary?start=' + first + '&end=' + last
     request = JSON.parse(request)
 
-    request["data"].each do |data|
-      data["type"]
-    end	
+    return request["data"]
   end
 
   def self.SummaryDetailGet(trip_id)
@@ -23,9 +21,7 @@ class Trip
   	request = HTTParty.get BASEURI + 'summary_details?trip_id=' + trip_id
     request = JSON.parse(request)
 
-    request ["data"].each do |data|
-      data["lat"]
-    end  
+    return request["data"]
 
   end
 
@@ -34,9 +30,7 @@ class Trip
     request = HTTParty.get BASEURI + 'pattern?start=' + first + '&end=' + last
     request = JSON.parse(request)
 
-    request ["data"].each do |data|
-      data["type"]
-    end
+    return request["data"]
 
   end
 
